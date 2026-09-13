@@ -1,4 +1,42 @@
 /* =================================
+   FONTS
+================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Inter:wght@400;600&family=JetBrains+Mono:wght@500;600&display=swap');
+
+/* =================================
+   COLOR VARIABLES (Stitch design system)
+================================= */
+
+:root {
+  --color-bg: #080B0F;
+  --color-surface-1: #121820;
+  --color-surface-2: #161F2C;
+  --color-border: rgba(30, 41, 59, 0.8);
+  --color-border-focus: #334155;
+
+  --color-primary: #10B981;
+  --color-primary-bright: #34D399;
+  --color-primary-dim: #059669;
+
+  --color-secondary: #06B6D4;
+  --color-secondary-bright: #2DD4BF;
+
+  --color-amber: #F59E0B;
+  --color-red: #EF4444;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #E2E8F0;
+  --text-muted: #94A3B8;
+  --text-faint: #64748B;
+
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+
+/* =================================
    GLOBAL
 ================================= */
 
@@ -8,9 +46,9 @@
 
 body {
   margin: 0;
-  font-family: Inter, Arial, sans-serif;
-  background: #f6f7fb;
-  color: #171a21;
+  font-family: var(--font-body), Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--text-primary);
 }
 
 button,
@@ -40,9 +78,10 @@ button {
 .sidebar {
   width: 250px;
   min-height: 100vh;
-  background: #111318;
-  color: white;
+  background: var(--color-surface-1);
+  color: var(--text-primary);
   padding: 24px 16px;
+  border-right: 1px solid var(--color-border);
 
   display: flex;
   flex-direction: column;
@@ -64,8 +103,8 @@ button {
   align-items: center;
   justify-content: center;
 
-  background: white;
-  color: #111318;
+  background: var(--color-primary);
+  color: var(--color-bg);
 
   font-weight: bold;
   font-size: 20px;
@@ -74,11 +113,13 @@ button {
 .logo h2 {
   margin: 0;
   font-size: 17px;
+  font-family: var(--font-display);
+  color: var(--text-primary);
 }
 
 .logo span {
   font-size: 10px;
-  color: #8e939e;
+  color: var(--text-faint);
 }
 
 
@@ -91,9 +132,9 @@ button {
 
   font-size: 10px;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 0.08em;
 
-  color: #6f7480;
+  color: var(--text-faint);
 }
 
 .nav-item {
@@ -105,9 +146,10 @@ button {
 
   margin-bottom: 4px;
 
-  border-radius: 9px;
+  border-radius: 6px;
+  border: 1px solid transparent;
 
-  color: #a9adb7;
+  color: var(--text-muted);
 
   text-decoration: none;
 
@@ -115,13 +157,14 @@ button {
 }
 
 .nav-item:hover {
-  background: #1c1f27;
-  color: white;
+  background: var(--color-surface-2);
+  color: var(--text-primary);
 }
 
 .nav-item.active {
-  background: #252932;
-  color: white;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--color-primary-bright);
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .nav-item span {
@@ -137,7 +180,7 @@ button {
   margin-top: 18px;
   padding: 12px;
 
-  border-top: 1px solid #292c34;
+  border-top: 1px solid var(--color-border);
 
   display: flex;
   align-items: center;
@@ -154,8 +197,8 @@ button {
   align-items: center;
   justify-content: center;
 
-  background: #e7e8ec;
-  color: #111318;
+  background: var(--color-surface-2);
+  color: var(--text-primary);
 
   font-weight: bold;
 }
@@ -167,11 +210,12 @@ button {
 
 .user-card strong {
   font-size: 13px;
+  color: var(--text-primary);
 }
 
 .user-card span {
   font-size: 10px;
-  color: #777c87;
+  color: var(--text-faint);
 }
 
 
@@ -194,9 +238,9 @@ button {
 
   padding: 24px 35px;
 
-  background: white;
+  background: var(--color-bg);
 
-  border-bottom: 1px solid #e7e8ec;
+  border-bottom: 1px solid var(--color-border);
 
   display: flex;
   justify-content: space-between;
@@ -206,7 +250,7 @@ button {
 .breadcrumb {
   margin: 0 0 5px;
 
-  color: #8a8f9a;
+  color: var(--text-muted);
 
   font-size: 12px;
 }
@@ -215,6 +259,8 @@ button {
   margin: 0;
 
   font-size: 25px;
+  font-family: var(--font-display);
+  color: var(--text-primary);
 }
 
 
@@ -232,10 +278,10 @@ button {
   width: 40px;
   height: 40px;
 
-  border: 1px solid #e2e4e9;
+  border: 1px solid var(--color-border);
   border-radius: 9px;
 
-  background: white;
+  background: var(--color-surface-1);
 }
 
 .ai-button {
@@ -244,10 +290,15 @@ button {
 
   padding: 11px 16px;
 
-  background: #17191f;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-bg);
 
   font-weight: 600;
+  font-family: var(--font-body);
+}
+
+.ai-button:hover {
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
 }
 
 
@@ -276,32 +327,36 @@ button {
 }
 
 .kpi-card {
-  background: white;
+  background: var(--color-surface-1);
 
-  border: 1px solid #e7e8ec;
+  border: 1px solid var(--color-border);
 
-  border-radius: 14px;
+  border-radius: 8px;
 
   padding: 20px;
+
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
 }
 
 .kpi-header {
   display: flex;
   justify-content: space-between;
 
-  color: #717682;
+  color: var(--text-muted);
 
   font-size: 13px;
 }
 
 .kpi-icon {
-  color: #9da1ab;
+  color: var(--text-faint);
 }
 
 .kpi-card h2 {
   margin: 15px 0 5px;
 
   font-size: 28px;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
 }
 
 .kpi-card p {
@@ -314,16 +369,16 @@ button {
 }
 
 .comparison {
-  color: #999da6;
+  color: var(--text-faint);
   font-size: 11px;
 }
 
 .positive {
-  color: #198754;
+  color: var(--color-primary-bright);
 }
 
 .negative {
-  color: #d9534f;
+  color: var(--color-red);
 }
 
 
@@ -333,15 +388,17 @@ button {
 
 .chart-card,
 .transactions-card {
-  background: white;
+  background: var(--color-surface-1);
 
-  border: 1px solid #e7e8ec;
+  border: 1px solid var(--color-border);
 
-  border-radius: 14px;
+  border-radius: 8px;
 
   padding: 22px;
 
   margin-bottom: 20px;
+
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
 }
 
 .section-header {
@@ -356,26 +413,28 @@ button {
   margin: 0 0 5px;
 
   font-size: 17px;
+  font-family: var(--font-display);
+  color: var(--text-primary);
 }
 
 .section-header p {
   margin: 0;
 
-  color: #8a8f9a;
+  color: var(--text-muted);
 
   font-size: 12px;
 }
 
 .section-header select {
-  border: 1px solid #dddfe5;
+  border: 1px solid var(--color-border);
 
   border-radius: 7px;
 
   padding: 8px 10px;
 
-  background: white;
+  background: var(--color-surface-2);
 
-  color: #555;
+  color: var(--text-secondary);
 }
 
 .chart {
@@ -388,7 +447,7 @@ button {
 
   padding: 10px 10px 0;
 
-  border-bottom: 1px solid #e7e8ec;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .bar {
@@ -396,7 +455,8 @@ button {
 
   max-width: 45px;
 
-  background: #17191f;
+  background: var(--color-primary);
+  background: linear-gradient(180deg, var(--color-primary-bright), var(--color-primary-dim));
 
   border-radius: 5px 5px 0 0;
 
@@ -404,7 +464,7 @@ button {
 }
 
 .bar:hover {
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
 .chart-labels {
@@ -414,7 +474,7 @@ button {
 
   padding: 10px;
 
-  color: #9296a0;
+  color: var(--text-faint);
 
   font-size: 10px;
 }
@@ -429,11 +489,11 @@ button {
 
   margin-bottom: 20px;
 
-  background: #fffaf7;
+  background: var(--color-surface-2);
 
-  border: 1px solid #f0dcd2;
+  border: 1px solid rgba(239, 68, 68, 0.3);
 
-  border-radius: 14px;
+  border-radius: 8px;
 }
 
 .anomaly-top {
@@ -446,14 +506,14 @@ button {
   width: 40px;
   height: 40px;
 
-  border-radius: 10px;
+  border-radius: 8px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #ffe3d6;
-  color: #c64b1b;
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--color-red);
 
   font-weight: bold;
 }
@@ -461,14 +521,17 @@ button {
 .risk-label {
   font-size: 10px;
   font-weight: bold;
+  letter-spacing: 0.05em;
 
-  color: #c64b1b;
+  color: var(--color-red);
 }
 
 .anomaly-top h3 {
   margin: 3px 0 0;
 
   font-size: 15px;
+  font-family: var(--font-display);
+  color: var(--text-primary);
 }
 
 .risk-score {
@@ -476,8 +539,9 @@ button {
 
   font-size: 24px;
   font-weight: bold;
+  font-family: var(--font-mono);
 
-  color: #c64b1b;
+  color: var(--color-red);
 }
 
 .anomaly-details {
@@ -492,8 +556,8 @@ button {
 
   padding: 18px 0;
 
-  border-top: 1px solid #f0dcd2;
-  border-bottom: 1px solid #f0dcd2;
+  border-top: 1px solid rgba(239, 68, 68, 0.2);
+  border-bottom: 1px solid rgba(239, 68, 68, 0.2);
 }
 
 .anomaly-details span,
@@ -504,23 +568,26 @@ button {
 .anomaly-details span {
   margin-bottom: 5px;
 
-  color: #8f8b88;
+  color: var(--text-muted);
 
   font-size: 11px;
 }
 
 .anomaly-details strong {
   font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
 }
 
 .anomaly-reason strong {
   font-size: 13px;
+  color: var(--text-primary);
 }
 
 .anomaly-reason p {
   margin: 6px 0 15px;
 
-  color: #68635f;
+  color: var(--text-secondary);
 
   font-size: 12px;
 }
@@ -532,11 +599,15 @@ button {
 
   border-radius: 8px;
 
-  background: #17191f;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-bg);
 
   font-size: 12px;
   font-weight: bold;
+}
+
+.explain-button:hover {
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
 }
 
 
@@ -548,6 +619,8 @@ button {
   border: none;
 
   background: transparent;
+
+  color: var(--color-secondary-bright);
 
   font-size: 12px;
 
@@ -569,39 +642,45 @@ th {
 
   text-align: left;
 
-  color: #8a8f9a;
+  color: var(--text-muted);
 
   font-size: 11px;
   font-weight: 600;
+  letter-spacing: 0.05em;
 
-  border-bottom: 1px solid #e7e8ec;
+  border-bottom: 1px solid var(--color-border);
 }
 
 td {
   padding: 15px 12px;
 
   font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
 
-  border-bottom: 1px solid #f0f1f4;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .status {
   padding: 5px 8px;
 
-  border-radius: 20px;
+  border-radius: 4px;
 
   font-size: 10px;
   font-weight: bold;
+  font-family: var(--font-body);
 }
 
 .status.normal {
-  background: #e7f6ed;
-  color: #198754;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--color-primary-bright);
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .status.risk {
-  background: #ffe7df;
-  color: #c64b1b;
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--color-red);
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 
