@@ -310,6 +310,44 @@ button {
   padding: 30px 35px;
 }
 
+/* =================================
+   FILTER BAR
+================================= */
+
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 14px;
+
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+}
+
+.filter-select {
+  padding: 10px 14px;
+
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+
+  color: var(--text-secondary);
+  font-size: 13px;
+}
 
 /* =================================
    KPI CARDS
@@ -659,6 +697,12 @@ td {
   color: var(--text-secondary);
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  white-space: nowrap;
+}
+
+th {
+  white-space: nowrap;
 }
 
 .status {
@@ -681,6 +725,13 @@ td {
   background: rgba(239, 68, 68, 0.1);
   color: var(--color-red);
   border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+
+.status.medium {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--color-amber);
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 
@@ -736,4 +787,126 @@ td {
     gap: 5px;
   }
 
+}
+
+/* =================================
+   TRANSACTIONS LAYOUT + INVESTIGATION PANEL
+================================= */
+
+.transactions-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+  align-items: start;
+}
+
+tr[onClick],
+.table-container tbody tr {
+  cursor: pointer;
+}
+
+.table-container tbody tr:hover {
+  background: var(--color-surface-2);
+}
+
+.row-selected {
+  background: rgba(16, 185, 129, 0.08) !important;
+}
+
+.investigation-panel {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 22px;
+
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+}
+
+.investigation-panel h3 {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.investigation-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  font-size: 12px;
+}
+
+.investigation-row span {
+  color: var(--text-muted);
+}
+
+.investigation-row strong {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+}
+
+.risk-high-text { color: var(--color-red); }
+.risk-medium-text { color: var(--color-amber); }
+.risk-low-text { color: var(--color-primary-bright); }
+
+.investigation-reason {
+  margin: 18px 0;
+}
+
+.investigation-reason strong {
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.investigation-reason p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.investigation-panel .explain-button {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.investigation-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.approve-button,
+.reject-button,
+.escalate-button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  font-size: 11px;
+  font-weight: 600;
+  background: transparent;
+}
+
+.approve-button {
+  color: var(--color-primary-bright);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.reject-button {
+  color: var(--color-red);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.escalate-button {
+  color: var(--color-amber);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+@media (max-width: 1100px) {
+  .transactions-layout {
+    grid-template-columns: 1fr;
+  }
 }
