@@ -910,3 +910,237 @@ tr[onClick],
     grid-template-columns: 1fr;
   }
 }
+
+/* =================================
+   ANOMALIES PAGE
+================================= */
+
+.anomaly-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.anomaly-kpi-card {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.anomaly-kpi-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.anomaly-kpi-value {
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.kpi-critical .anomaly-kpi-value { color: var(--color-red); }
+.kpi-high .anomaly-kpi-value { color: var(--color-amber); }
+.kpi-medium .anomaly-kpi-value { color: var(--color-secondary-bright); }
+.kpi-resolved .anomaly-kpi-value { color: var(--color-primary-bright); }
+
+.anomalies-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+  align-items: start;
+}
+
+.anomaly-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.anomaly-feed-item {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.anomaly-feed-item:hover {
+  background: var(--color-surface-2);
+}
+
+.feed-item-selected {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.feed-item-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.severity-badge {
+  font-size: 10px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.severity-critical {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--color-red);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.severity-high {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--color-amber);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.severity-medium {
+  background: rgba(6, 182, 212, 0.1);
+  color: var(--color-secondary-bright);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.feed-score,
+.feed-id {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.anomaly-feed-item h3 {
+  margin: 0 0 2px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.feed-subtitle {
+  margin: 0 0 10px;
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.feed-item-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.feed-amount {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.feed-time {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.feed-diagnostic {
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.feed-diagnostic strong {
+  display: block;
+  font-size: 12px;
+  color: var(--color-red);
+  margin-bottom: 4px;
+}
+
+.feed-diagnostic p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.investigation-subtitle {
+  margin: -10px 0 16px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1100px) {
+  .anomalies-layout {
+    grid-template-columns: 1fr;
+  }
+  .anomaly-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.reasoning-timeline {
+  margin: 18px 0;
+}
+
+.reasoning-timeline > strong {
+  display: block;
+  font-size: 12px;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.timeline-track {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline-track::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-primary), var(--color-secondary), var(--color-red));
+}
+
+.timeline-step {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.timeline-step:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -20px;
+  top: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-surface-1);
+}
+
+.timeline-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.timeline-detail {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: var(--text-muted);
+}
